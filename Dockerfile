@@ -2,17 +2,11 @@
 FROM openjdk:11
 
 # Copia el script Bash al contenedor
-COPY my_script.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/my_script.sh
-
-# Establece el directorio de trabajo
-WORKDIR /app
-
-# Copia tu aplicación Java al contenedor (suponiendo que tienes un archivo JAR)
-COPY my_app.jar .
+COPY init.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/init.sh
 
 # Ejecuta el script Bash al construir la imagen
-RUN /usr/local/bin/my_script.sh
+RUN /usr/local/bin/init.sh
 
 # Comando de inicio para ejecutar la aplicación Java
-CMD ["java", "-jar", "my_app.jar"]
+CMD ["java", "-jar", "tscd-factorial/target/factorial-1.0-SNAPSHOT.jar"]
