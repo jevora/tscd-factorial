@@ -7,11 +7,11 @@ public class FactorialServer {
 	public static void main(String[] args) {
 		System.out.println("arrancando servidor");
 		port(8080);
-		get("/factorial", (req, res) -> {
+		get("/factorial/:number", (req, res) -> {
 			try {
-				String numberParam = req.queryParams("number");
+				String numberParam = req.params("number");
 				long factorial = calculateFactorial(Integer.parseInt(numberParam));
-				return "El factorial de " + numberParam + " es " + factorial;
+				return "El factorial de " + numberParam + " es " + factorial + "\n\n";
 			} catch (NumberFormatException e) {
 				return "Por favor, proporciona un número válido como parámetro 'number'.";
 			}
