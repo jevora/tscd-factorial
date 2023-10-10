@@ -5,6 +5,7 @@ import static spark.Spark.port;
 
 public class FactorialServer {
 	public static void main(String[] args) {
+		System.out.println("arrancando servidor");
 		port(80);
 		get("/factorial", (req, res) -> {
 			try {
@@ -15,6 +16,7 @@ public class FactorialServer {
 				return "Por favor, proporciona un número válido como parámetro 'number'.";
 			}
 		});
+		System.out.println("servidor arrancado");
 	}
 
 	private static long calculateFactorial(int number) {
