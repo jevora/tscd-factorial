@@ -2,11 +2,7 @@
 FROM openjdk:11
 
 # Copia el script Bash al contenedor
-COPY init.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/init.sh
-
-# Ejecuta el script Bash al construir la imagen
-RUN /usr/local/bin/init.sh
+COPY target/factorial-1.0-SNAPSHOT.jar /home
 
 # Comando de inicio para ejecutar la aplicación Java
-CMD ["java", "-jar", "tscd-factorial/target/factorial-1.0-SNAPSHOT.jar"]
+# CMD ["java", "-jar", "/home/factorial-1.0-SNAPSHOT.jar"]
