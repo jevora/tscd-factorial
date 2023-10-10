@@ -6,7 +6,7 @@ import static spark.Spark.port;
 public class FactorialServer {
 	public static void main(String[] args) {
 		System.out.println("arrancando servidor");
-		port(80);
+		port(8080);
 		get("/factorial", (req, res) -> {
 			try {
 				String numberParam = req.queryParams("number");
